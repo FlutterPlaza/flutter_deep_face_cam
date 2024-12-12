@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../constants/colors.dart';
@@ -45,16 +46,30 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.grey.withOpacity(0.3),
                         ),
                       ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            controller.userCase1,
+                            style: GoogleFonts.mulish(
+                              textStyle: const TextStyle(
+                                  color: blackBG,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  Positioned(
-                    bottom: 10,
-                    right: 30,
-                    child: IconButton(
-                      onPressed: () => {},
-                      icon: const Icon(Icons.download_rounded),
-                    ),
-                  )
+                  if (controller.processed)
+                    Positioned(
+                      bottom: 10,
+                      right: 30,
+                      child: IconButton(
+                        onPressed: () => {},
+                        icon: const Icon(Icons.download_rounded),
+                      ),
+                    )
                 ],
               ),
               const SizedBox(height: 20),
@@ -66,8 +81,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       const ProcessImage(),
                       const SizedBox(height: 50),
                       if (controller.currentIndex != 0)
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
                           children: List.generate(
                               controller.switchOtions.length, (index) {
                             var data = controller.switchOtions[index];
@@ -84,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           btnColor: controller.currentIndex == 0
                               ? blueBG
                               : controller.currentIndex == 1
-                                  ? Colors.blue
+                                  ? Colors.redAccent.withOpacity(0.8)
                                   : Colors.green,
                           textColor: whiteBG,
                           onPress: () async => {

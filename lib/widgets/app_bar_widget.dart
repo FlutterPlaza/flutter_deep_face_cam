@@ -19,7 +19,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                 color: controller.currentIndex == 0
                     ? blueBG
                     : controller.currentIndex == 1
-                        ? Colors.blue
+                        ? Colors.redAccent.withOpacity(0.8)
                         : Colors.green),
           ),
           title: Text(
@@ -30,19 +30,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           centerTitle: true,
-          actions: [
-            const SizedBox(width: 20),
-            Container(
-              height: 40,
-              width: 40,
-              decoration:
-                  const BoxDecoration(shape: BoxShape.circle, color: whiteBG),
-              child: const Center(
-                child: Icon(Icons.camera_alt_outlined),
-              ),
-            ),
-            const SizedBox(width: 20),
-          ],
         );
       },
     );

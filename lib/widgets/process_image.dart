@@ -212,7 +212,7 @@ class _ProcessImageState extends State<ProcessImage> {
                         color: controller.currentIndex == 0
                             ? blueBG
                             : controller.currentIndex == 1
-                                ? Colors.blue
+                                ? Colors.redAccent.withOpacity(0.8)
                                 : Colors.green,
                         borderRadius: BorderRadius.circular(10)),
                     padding: const EdgeInsets.all(10),
@@ -315,7 +315,7 @@ class _ProcessImageState extends State<ProcessImage> {
                         ),
                         const SizedBox(height: 15),
                         Text(
-                          "Select target",
+                          controller.targetText,
                           style: GoogleFonts.mulish(
                             textStyle: const TextStyle(
                                 color: whiteBG, fontWeight: FontWeight.bold),

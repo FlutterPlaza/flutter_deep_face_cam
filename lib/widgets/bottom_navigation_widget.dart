@@ -16,7 +16,7 @@ class BottomNavigationWidget extends StatelessWidget {
               color: controller.currentIndex == 0
                   ? blueBG
                   : controller.currentIndex == 1
-                      ? Colors.blue
+                      ? Colors.redAccent.withOpacity(0.8)
                       : Colors.green),
           child: BottomNavigationBar(
             backgroundColor: Colors.transparent,
